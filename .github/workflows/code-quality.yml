@@ -29,8 +29,10 @@ jobs:
           pnpm install --frozen-lockfile
         env:
           CYPRESS_CACHE_FOLDER: .cache/Cypress
-
+      - name: Run coverage
+        run: |
+          pnpm run ci --coverage
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@main
         env:
-            QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}        
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}

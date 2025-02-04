@@ -1,0 +1,9 @@
+version: "1.0"
+linter: jetbrains/qodana-js:2024.3
+bootstrap: |
+  mkdir -p /data/coverage
+  mv coverage/lcov.info /data/coverage
+  rm -rf coverage
+include:
+  - name: JsCoverageInspection
+  - name: CheckDependencyLicenses
